@@ -1,0 +1,33 @@
+Handlers:
+tasks triggered by events/notifications
+defined in playbook, executed when notified by task
+manage actions based on system state/configuration changes
+
+Roles:
+make your work re-usable
+in that we can separate in diff dir like vars,templates,tasks,defaults,handlers,etc
+
+$ ansible-galaxy init -- to initialize and create a dir structure, for create a role from scratch
+we can find role by default at /etc/ansible/roles  this defined in /etc/ansible/ansible.cfg
+as roles_path = /etc/ansible/roles
+
+find role: $ ansible-galaxy search role_name
+use role: $ ansible-galaxy install role_name, if want to create in current dir then use: $ ansible-galaxy install role_name -p ./roles
+list role: $ ansible-galaxy list
+to find location: $ ansible-config dump | grep ROLE
+
+Collections: 
+-package and ditribute modules,roles,plugins,etc 
+-self contained
+-community and vendor-created
+
+benefits:
+-expanded functionality
+-modularity and reusability
+-simplified distribution and management
+$ ansible-galaxy collection install -r requirement.yml
+
+network.cisco
+network.juniper
+network.arista
+to install $ ansible-galaxy collection install network.cisco

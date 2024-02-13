@@ -1,0 +1,7 @@
+1.
+There is a template named /home/bob/playbooks/replace/templates/name.txt.j2 on student-node.
+Similarly, there is a playbook named /home/bob/playbooks/replace/playbook.yml 
+on student-node itself.
+
+Ans:
+The student name is {{ student | upper }}

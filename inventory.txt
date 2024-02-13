@@ -1,0 +1,30 @@
+Ansible needs to establish connectivity to those servers and for linux uses ssh.
+That's what make ansible agentless.
+
+Info about this target system is stored in inventory file.
+default location for ansible inventory file is: /etc/ansible/hosts
+inventory using ini format.
+
+ansible_host = inventory parameter used to specify FQDN or IP address of a server.
+other parameter:  ansible_connection, ansible_port, ansible_user, ansible_ssh_pass, etc
+by default for linux -- ansible_user=root
+
+inventory formats:
+INI --  simplest and most straightforward
+YAML --  more structured and flexible than INI format.
+
+Grouping & Parent-Child Relationships:
+we can create common labels or groups to efficiently manage and operate on a set of servers at one.
+
+Parent group for: web servers
+child group: for locations 
+[webservers:children]
+webservers_us
+webservers_eu
+
+[webservers_eu]
+server1
+server2
+[webservers_us]
+server1
+server2

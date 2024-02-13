@@ -1,0 +1,41 @@
+In playbook vars dir k andar store kar sakte hai like server port, host etc 
+Also can make separate file for variables.
+
+that called in {{}} in that var_name. -- jinja2 templating
+
+Stringvariables : sequence of characters
+Numbervariables : can hold int or float
+Booleanvariables : true or false
+Listvariables : can hold an ordered collection of values, can be any type
+Dictionaryvariables : can hold a collection of key-value pairs, can be any type
+
+Registering vars and var precedence:
+when playbook runs the group vars and then associate the host vars.
+host vars takes precedent over group vars.
+
+            priority
+role defaults-  9
+groups vars --  8
+host vars   --  7
+host facts  --  6
+play vars   --  5
+role vars   --  4
+include vars--  3
+set facts   --  2
+extra vars  --  1
+
+vars scope:
+vars scopes-host
+vars scopes-global:$ ansible-playbook playbook.yml --extra-vars "ntp-server=10.1.1.1"
+
+magic vars:
+a magic var called hostvars can be used to get vars defined on another host
+msg: '{{ hostvars['web2'].ansible_host }}'
+like other ansible_facts.architecture, ansible_facts.device etc we can get 
+
+magic vars-group_names: msg: '{{ group_names }}' #web1
+magic vars-inventory_hostname: msg: '{{ inventory_hostname }}' #web1
+
+ansible-facts:
+all facts are stored in var: ansible_facts
+to stop facts use: gather_facts: no

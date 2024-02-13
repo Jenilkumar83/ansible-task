@@ -1,0 +1,10 @@
+Ansible playbook is text files or config files rather, that are written in particular format called YAML.
+
+key value pair      --  key and value separate by colon
+array lists         --  - dash indicate that is element of an array
+dictionary/map      --  It is a set of properties grouped together under an item.
+
+number of spaces before each property that is key in yaml
+
+dictionary - unordered
+list/array - ordered

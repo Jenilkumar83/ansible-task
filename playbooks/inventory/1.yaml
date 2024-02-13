@@ -1,0 +1,18 @@
+1. We have a sample inventory file called inventory under /home/bob/playbooks directory. 
+It has 3 servers listed, add another server called server4.company.com in this file.
+
+Ans:
+server1.company.com
+server2.company.com
+server3.company.com
+server4.company.com
+
+-We have reset the /home/bob/playbooks/inventory inventory file, and added the aliases named 
+web1, web2 and web3 for the first three hosts respectively. 
+Update this inventory file to add an alias called db1 for server4.company.com host.
+
+Ans:
+web1 ansible_host=server1.company.com
+web2 ansible_host=server2.company.com
+web3 ansible_host=server3.company.com
+db1  ansible_host=server4.company.com

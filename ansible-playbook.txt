@@ -1,0 +1,33 @@
+Playbook - a single yaml file
+play - set of tasks to be run hosts
+task - action to be perform on the host--execute command,run script,install package, etc
+
+host or groups is first defined in inventory file
+
+the diff actions run by tasks are called modules.
+
+Verifying playbooks:
+provides diff modes like check mode, diff mode or main one
+check mode: dry run mode, without making any actual changes on the hosts,
+            to run playbook in check mode use --check option.
+diff mode: provides a before-and-after comparison of playbook changes, --diff
+
+syntax check:
+to run --syntax-check option like this
+ansible-playbook --syntax-check configure_database.yml
+
+ansible-lint:
+is a command-line tool that performs linting on ansible playbooks, roles & collections.
+it checks code for potential errors, bugs, stylistic errors and suspicious constructs.
+it shows like whitespace remain, name should present for all tasks
+
+Conditional:
+when: ansible_os_family == "RedHat" or
+      ansible_os_family == "SUSE"
+loop: "{{ packages }}"
+
+ansible_facts -- when:ansible_facts['os_family'] == 'debian' and ansible_facts['distribution_major_version'] == '18'
+vars -- app_env: production
+
+loops:-
+with_* -- with_items, with_files, with_url, etc

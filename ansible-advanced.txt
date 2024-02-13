@@ -1,0 +1,14 @@
+Templating:
+in webpages generally used, in that uses some of vars and use it
+in ansible it is used for customize playbooks to have custom info or to create custom config files
+
+string manipulation-filters: upper,lower,title,replace,default,etc
+filters list and set: min,max,unique,union,intersect,random,join
+loops
+conditions
+
+jinja2:- 
+filters-file: basename,first,last
+file extension: .j2
+
+sudo yum install ansible -y

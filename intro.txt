@@ -1,0 +1,24 @@
+Ansible uses yaml language.
+Ansible Playbook written in yaml file.
+
+Ansible Playbooks are lists of tasks that automatically execute for your specified inventory or groups of hosts
+
+Ansible configuration files:
+/etc/ansible/ansible.cfg
+in this diff sections are avail like: defaults, inventory, privilege escalation, ssh connnection, colors etc
+default locationn of inventory is: /etc/ansible/hosts
+
+first priority run for configuration file is that what we made new path using env var that will run first.
+.ansible.cfg -- in the user's home dir, this is run before default ansible configuration file
+
+$ ANSIBLE_GATHERING=explicit ansible-playbook playbook.yml -- this is only for single playbook app, single command
+
+if want for through out shell:
+$ export ANSIBLE_GATHERING=explicit
+$ ansible-playbook playbook.yml
+
+if want anywhere in other shell then make it local copy of that config file in playbook dir.
+
+$ ansible-config list
+$ ansible-config view   --  to see currently working active
+$ ansible-config dump	--	shows the current settings Ansible has picked up and from where/mostly used at troubleshooting time
