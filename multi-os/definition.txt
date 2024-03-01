@@ -1,0 +1,3 @@
+1)Create ansible playbook which should be able to run on multiple os 
+2)When it ran on perticular os ,it should create a file in /home/user/osname.txt.....
+3)In that osname.txt save the details about os
