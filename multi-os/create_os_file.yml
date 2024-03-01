@@ -1,0 +1,31 @@
+---
+- name: Create OS File
+  hosts: localhost
+  become: true  # Run tasks with become (sudo) privileges
+  
+  tasks:
+    - name: Gather facts about the OS
+      setup:
+
+    - name: Determine OS name
+      set_fact:
+        os_name: "{{ ansible_distribution }}"
+
+    - name: Create directory if it doesn't exist
+      file:
+        path: "/home/user"
+        state: directory
+        mode: 0755
+
+    - name: Create OS details file
+      template:
+        src: os_details.j2  # Create a Jinja2 template for the OS details
+        dest: "/home/user/{{ os_name }}.txt"
+      notify:
+        - Display success message
+
+  handlers:
+    - name: Display success message
+      debug:
+        msg: "OS details file created successfully: /home/user/{{ os_name }}.txt"
+
