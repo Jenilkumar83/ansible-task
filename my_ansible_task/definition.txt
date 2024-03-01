@@ -1,0 +1,3 @@
+ansible task:
+  -Install mysql in local machine.
+  -After install mysql need to create root user, password.

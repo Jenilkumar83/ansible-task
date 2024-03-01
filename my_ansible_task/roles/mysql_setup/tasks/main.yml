@@ -1,0 +1,27 @@
+---
+# tasks file for my_ansible_task
+
+#- name: Update APT Package repository cache
+#  apt:
+#    update_cache: True
+
+- name: Install MySQL server on Ubuntu
+  apt:
+    name: mysql-server
+    state: present
+
+- name: Install MySQL client on Ubuntu
+  apt:
+    name: mysql-client
+    state: present
+
+- name: Make sure mysql service is running
+  service:
+    name: mysql
+    state: started
+    enabled: yes
+
+- name: Install python3-PyMySQL library
+  apt:
+    name: python3-pymysql
+    state: present

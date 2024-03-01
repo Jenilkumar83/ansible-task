@@ -1,0 +1,16 @@
+---
+- name: Change the authentication plugin of MySQL root user to mysql_native_password
+  shell: mysql -u root -e 'UPDATE mysql.user SET plugin="mysql_native_password" WHERE user="root" AND host="localhost"'
+  # Changing the authentication plugin for the MySQL root user to mysql_native_password.
+  notify: Flush MySQL Privileges
+
+- name: Set MySQL root password
+  mysql_user:
+    login_host: 'localhost'
+    login_user: 'root'
+    login_password: ''		# Assuming root user has no password initially
+    name: 'root'
+    password: '{{ mysql_pass }}'	# Setting the MySQL root password using the variable
+    state: present
+  notify: Flush MySQL Privileges	# Notifying the task to flush privileges after making changes
+

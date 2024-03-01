@@ -1,0 +1,7 @@
+---
+# handlers file for my_ansible_task
+
+- name: Flush MySQL Privileges
+  shell: mysql -u root -e 'FLUSH PRIVILEGES'
+  # Flush privileges is done to ensure that any changes to the user privileges take effect immediately.
+

@@ -1,0 +1,4 @@
+---
+# vars file for my_ansible_task
+
+mysql_pass: verysecret		# Set the MySQL password, make sure to use a strong and secure password
